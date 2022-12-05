@@ -27,10 +27,13 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  // throw new Error('Not implemented');
+  if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz';
+  if (num % 3 === 0) return 'Fizz';
+  if (num % 5 === 0) return 'Buzz';
+  return num;
 }
-
 
 /**
  * Returns the factorial of the specified integer n.
@@ -43,8 +46,15 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  // throw new Error('Not implemented');
+  let acc = n;
+  let result = 1;
+  while (acc !== 1) {
+    result *= acc;
+    acc -= 1;
+  }
+  return result;
 }
 
 
@@ -60,8 +70,15 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  // throw new Error('Not implemented');
+  let num1 = n1;
+  let result = 0;
+  while (n2 >= num1) {
+    result += num1;
+    num1 += 1;
+  }
+  return result;
 }
 
 
@@ -208,8 +225,9 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  // throw new Error('Not implemented');
+  return str.split('').reverse().join('');
 }
 
 
@@ -225,8 +243,9 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  // throw new Error('Not implemented');
+  return +(String(num).split('').reverse().join(''));
 }
 
 
@@ -268,8 +287,23 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  // throw new Error('Not implemented');
+  const arr = String(num).split('');
+  let result = 0;
+  let acc = 0;
+  arr.map((element) => {
+    result += +element;
+    return result;
+  });
+  if (result > 9) {
+    String(result).split('').map((element) => {
+      acc += +element;
+      return acc;
+    });
+    return acc;
+  }
+  return result;
 }
 
 
@@ -361,6 +395,17 @@ function getCommonDirectoryPath(/* pathes */) {
  */
 function getMatrixProduct(/* m1, m2 */) {
   throw new Error('Not implemented');
+  // let m = m1.length;
+  // let n = m1[0].length;
+  // let arr = [];
+
+  // for (let i = 0; i < m; i += 1) {
+  //     arr[i] = [];
+  //     for (let j = 0; j < n; j += 1) {
+  //     arr[i][j] = m1[i][j] + m2[i][j];
+  //     }
+  // }
+  // return arr;
 }
 
 
